@@ -58,7 +58,7 @@ class _RecoverPasswordState extends State<RecoverPassword> {
       gravity: EdgeAlert.TOP,
       backgroundColor: Colors.red,
       duration: 2,
-      icon: Icons.done,
+      icon: Icons.error,
     );
   }
 
@@ -66,78 +66,81 @@ class _RecoverPasswordState extends State<RecoverPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            // INPUT: RESET CODE
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 18),
-              child: Center(
-                child: Text(
-                  "Reset Password",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              // INPUT: RESET CODE
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 5, horizontal: 18),
+                child: Center(
+                  child: Text(
+                    "Reset Password",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width * 9 / 10,
-              child: TextInput(
-                controller: resetCodeController,
-                labelText: "Enter reset code",
-                prefixIcon: Icons.vpn_key,
+              SizedBox(
+                height: 50,
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            // INPUT: PASSWORD
-            Container(
-              width: MediaQuery.of(context).size.width * 9 / 10,
-              child: PasswordInput(
-                controller: passwordController,
+              Container(
+                width: MediaQuery.of(context).size.width * 9 / 10,
+                child: TextInput(
+                  controller: resetCodeController,
+                  labelText: "Enter reset code",
+                  prefixIcon: Icons.vpn_key,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            ButtonTheme(
-              height: 45,
-              minWidth: MediaQuery.of(context).size.width * 4 / 5,
-              child: RaisedButton(
-                color: Colors.red,
-                shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(15.0)),
-                onPressed: _resetPasswordOnClick,
-                child: const Text('Reset Password',
-                    style: TextStyle(fontSize: 18, color: Colors.white)),
+              SizedBox(
+                height: 30,
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            ButtonTheme(
-              height: 45,
-              minWidth: MediaQuery.of(context).size.width * 4 / 5,
-              child: RaisedButton(
-                color: Colors.white70,
-                shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(15.0)),
-                onPressed: _resendCodeOnClick,
-                child: const Text('Resend Code',
-                    style: TextStyle(fontSize: 18, color: Colors.white)),
+              // INPUT: PASSWORD
+              Container(
+                width: MediaQuery.of(context).size.width * 9 / 10,
+                child: PasswordInput(
+                  controller: passwordController,
+                ),
               ),
-            ),
-          ],
+              SizedBox(
+                height: 30,
+              ),
+              ButtonTheme(
+                height: 45,
+                minWidth: MediaQuery.of(context).size.width * 4 / 5,
+                child: RaisedButton(
+                  color: Colors.red,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(15.0)),
+                  onPressed: _resetPasswordOnClick,
+                  child: const Text('Reset Password',
+                      style: TextStyle(fontSize: 18, color: Colors.white)),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              ButtonTheme(
+                height: 45,
+                minWidth: MediaQuery.of(context).size.width * 4 / 5,
+                child: RaisedButton(
+                  color: Colors.white70,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(15.0)),
+                  onPressed: _resendCodeOnClick,
+                  child: const Text('Resend Code',
+                      style: TextStyle(fontSize: 18, color: Colors.white)),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

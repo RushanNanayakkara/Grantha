@@ -12,12 +12,6 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(
-      Duration(seconds: 3),
-      () {
-        Navigator.pushNamed(context, '/');
-      },
-    );
   }
 
   @override

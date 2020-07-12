@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:grantha/screens/pickInterests/PickInterests.dart';
+import 'package:grantha/screens/emailConformation/EmailConformation.dart';
 import 'package:grantha/screens/error/error.dart';
 import 'package:grantha/screens/home/Home.dart';
 import 'package:grantha/screens/login/Login.dart';
@@ -20,6 +22,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => RecoverPassword());
       case '/userAgreement':
         return MaterialPageRoute(builder: (_) => UserAgreement());
+      case '/pickInterests':
+        return MaterialPageRoute(builder: (_) => PickInterests());
+      case '/emailConformation':
+        return MaterialPageRoute(builder: (_) => EmailConformation());
       case '/error':
         return MaterialPageRoute(
             builder: (_) => ErrorView(error_message: "Direct Route"));
